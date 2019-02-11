@@ -7,20 +7,20 @@ class ParallaxScroll extends Component {
         super(props)
     }
     render() {
-        const {imgSrc}  = this.props
+        const {imgSrc, viewPort, imgHeight}  = this.props
         return (
             <div>
 
                 <Parallax strength={500}
                 >
 
-                    <div style={{ height: "100vh", width: "auto" }}>
+                    <div style={{ height: viewPort, width: "auto" }}>
                     </div>
-                    <Background style={{ height: "100vh" }} className="custom-bg">
+                    <Background  className="custom-bg">
 
 
-                        <div style={{ maxHeight: "100vh", width: "auto" }}>
-                            <img style={{ maxHeight: "1200px" }}
+                        <div >
+                            <img style={{ maxHeight: imgHeight, minWidth: "100%", paddingTop: "200px" }}
 
                                 src={imgSrc}
                             />

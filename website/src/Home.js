@@ -7,6 +7,9 @@ import { withStyles } from "@material-ui/core/styles"
 import ParallaxScroll from "./ParallaxScroll"
 import LinkButton from "./LinkButton";
 import zIndex from "@material-ui/core/styles/zIndex";
+import MediaCard from "./MediaCard";
+import ComplexButton from "./ComplexButton";
+import ParallaxButton from "./ParallaxButton";
 
 const styles = {
     media: {
@@ -41,22 +44,34 @@ class Home extends Component {
                 }}>
                     <h1 style={{color: "white", zIndex: "2", fontSize: "50px"}}>Filmmaker Photographer Visionary</h1>
                 </div>
-                <AppBar position="sticky" style={{ backgroundColor: "rgba(0, 0, 0, 0)", position: "absolute", top: "0px", boxShadow: "none" }} >
-                    <Toolbar style={{}}>
-                        <div style={{ flexGrow: "1", float: "left", fontSize: "25px", color: "white" }}>Chase Tucker</div>
-                        <div>
-                            <LinkButton to="/About" className={classes.buttonStyle}>About</LinkButton>
-                            <LinkButton to="/Projects" className={classes.buttonStyle}>Projects</LinkButton>
-                            <LinkButton to="/Contact" className={classes.buttonStyle}>Contact</LinkButton>
+
+
+
+                <ParallaxScroll imgSrc={require("./img/Home_Landscape.jpeg")} viewPort = "100vh" imgHeight = "1100px"></ParallaxScroll>
+
+                <Card style={{display: "flex", flexDirection: "column",  alignItems: "center"}}>
+                    <div style={{padding: "30px"}}>
+                        <h1 style={{fontSize: "40px"}}>Amazing Title</h1>
+                    </div>
+                    <div style={{display: "flex", padding: "20px", width: "100%", justifyContent: "center"}}>
+                        <div style={{flex: "1", padding: "20px 40px 10px 40px", display: "flex", justifyContent: "center"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </div>
-                    </Toolbar>
-                </AppBar>
-
-
-
-                <ParallaxScroll style={{ height: "100vh" }} imgSrc={require("./img/mtn.jpg")}></ParallaxScroll>
-
-                <Card style={{ height: "600px" }}></Card>
+                        <div style={{flex: "1", display: "flex", justifyContent: "center", padding: "20px 20px 10px 10px", height: "100%"}}>
+                            <div style={{ minWidth: "350px"}}>
+                            {/*<MediaCard style ={{width: "100%", height: "100%", display: "inlineBlock"}} imgSrc={require("./img/Home_img1.jpeg")}></MediaCard>
+                            */}
+                            <img style = {{ maxWidth: "100%"}} src={require("./img/Home_img1.jpeg")}></img>
+                            </div>
+                        </div>
+                    </div>
+                </Card>
+                <ComplexButton></ComplexButton>
+                <Card style={{height:"100vh"}}></Card>
             </div>
         )
 
