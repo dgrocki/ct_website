@@ -101,11 +101,10 @@ function ButtonBases(props) {
               height: "100px"
           }}
         >
-                 <ParallaxScroll imgSrc={require("./img/movie_poster.jpeg")} viewPort = "100vh" imgHeight = "100px"></ParallaxScroll>
-         {/*} <span
+          <span
             className={classes.imageSrc}
             style={{
-              backgroundImage: `url(${image.url})`,
+                height: "30%"
             }}
           />
           <span className={classes.imageBackdrop} />
@@ -119,7 +118,6 @@ function ButtonBases(props) {
               <span className={classes.imageMarked} />
             </Typography>
           </span>
-        */}
         </ButtonBase>
     </div>
   );

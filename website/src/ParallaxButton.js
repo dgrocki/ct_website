@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import ParallaxScroll from './ParallaxScroll';
+import { Parallax, Background } from 'react-parallax';
+import "./ParallaxButton.css";
 
 const styles = theme => ({
     root: {
@@ -14,10 +16,8 @@ const styles = theme => ({
     },
     image: {
         position: 'relative',
-        height: 200,
         [theme.breakpoints.down('xs')]: {
             width: '100% !important', // Overrides inline-style
-            height: 100,
         },
         '&:hover, &$focusVisible': {
             zIndex: 1,
@@ -78,56 +78,88 @@ const styles = theme => ({
     },
 });
 
-const images = [
-    {
-        url: './img/movie_poster.jpeg',
-        title: 'Breakfast',
-        width: '100%',
-    },
-];
-
-function ButtonBases(props) {
-    const { classes } = props;
-
-    return (
-        <div className={classes.root}>
-                <ParallaxScroll
-
-                    focusRipple
-                    className={classes.image}
-                    focusVisibleClassName={classes.focusVisible}
-                    style={{
-                        width: "100%"
-                    }}
-                    imgSrc={require("./img/movie_poster.jpeg")} viewPort="100vh" imgHeight="2000px"
 
 
-                ></ParallaxScroll>
-                <img src={require("./img/movie_poster.jpeg")}></img>
-                {/*} <span
-            className={classes.imageSrc}
-            style={{
-              backgroundImage: `url(${image.url})`,
-            }}
-          />
-          <span className={classes.imageBackdrop} />
-          <span className={classes.imageButton}>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
-              className={classes.imageTitle}
+class ParallaxButton extends Component {
+
+
+    constructor(props) {
+        super(props);
+        this.handleMouseHover = this.handleMouseHover.bind(this);
+        this.state = {
+            isHovering: false,
+        };
+    }
+
+    handleMouseHover() {
+        console.log("hello")
+        this.setState(this.toggleHoverState);
+    }
+
+    toggleHoverState(state) {
+        return {
+            isHovering: !state.isHovering,
+        };
+    }
+    render() {
+        const { classes } = this.props;
+        return (
+            <div
+                onMouseEnter={this.handleMouseHover}
+                onMouseLeave={this.handleMouseHover}
             >
-              <span className={classes.imageMarked} />
-            </Typography>
-          </span>
-        */}
-        </div>
+
+                {
+
+                    this.state.isHovering &&
+                    <div 
+                    className={"ripple"}
+                    style={{
+                        backgroundColor: "rgba(0, 0, 0, 0.35)",
+                        position: "absolute",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        height: "50vh",
+                        width: "100%",
+                        zIndex: "1",
+                        cursor: "pointer"
+
+                    }}>
+                        <h1 className={"noTextHighlight"} style={{ color: "white", zIndex: "2", fontSize: "50px",
+
+                }}>
+                    Nectar of the Gods
+                
+                    </h1>
+
+                </div >
+                }
+
+            <Parallax
+    strength={500}
+    bgImage={require("./img/movie_poster.jpeg")}
+    bgImageStyle={{ paddingTop: "168px" }}
+    renderLayer={percentage => (
+        <div
+            style={{
+                position: 'absolute',
+                width: percentage * 500,
+                height: percentage * 500,
+            }}
+        />
+    )}
+>
+    <div style={{ height: "50vh" }}>
+    </div>
+</Parallax>
+
+        </div >
     );
 }
-
-ButtonBases.propTypes = {
+}
+ParallaxButton.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ButtonBases);
+export default withStyles(styles)(ParallaxButton);
